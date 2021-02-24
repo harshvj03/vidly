@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Vidly.Models.Movie>
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+
+ @*<button class="btn btn-primary">Hello</button>*@
+
+<p>
+    @Html.ActionLink("New Movie", "New", "Movies", null, new { @class = "btn btn-primary" })
+</p>
+
+ <table class="table">
+     <tr>
+         <th>
+             Movie
+         </th>
+         <th>Genre</th>
+     </tr>
+
+     @foreach (var movie in Model)
+     {
+ <tr>
+
+     <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, null)</td>
+
+     <td>@movie.Genre.Name</td>
+     @*<td>@Html.ActionLink(customer.Name, "Details", "Customers", new { id = customer.Id }, null)</td>*@
+
+     @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>*@
+ </tr>
+     }
+
+ </table>
+
